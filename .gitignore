@@ -1,0 +1,27 @@
+# Python / Streamlit
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+.pytest_cache/
+.streamlit/config.toml
+
+# Project Artifacts & Reports (Local Context)
+reports/
+instructions/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+.env
+
+# Data Files (Optional)
+# Keeping CSVs/MD needed by app.py:
+# - metricas_rwa_finais.csv
+# - fire_hazard_report.md
+# - bdqueimadas_*.csv
+# (These are small enough to be tracked)

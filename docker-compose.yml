@@ -1,0 +1,14 @@
+services:
+  dashboard:
+    build: .
+    container_name: ecolab_dashboard
+    ports:
+      - "8501:8501"
+    # Mount local directory to container for real-time code updates
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Enable file watching for Streamlit to detect hot-reloads
+      - STREAMLIT_SERVER_FILE_WATCHER_TYPE=poll
+    restart: unless-stopped

@@ -1,0 +1,12 @@
+streamlit==1.32.2
+leafmap
+folium
+streamlit-folium
+rasterio
+geopandas
+plotly
+pandas
+matplotlib
+localtileserver
+xarray
+rioxarray
