@@ -220,7 +220,7 @@ if 'mapa_gerado' not in st.session_state:
     st.session_state['mapa_gerado'] = False
 
 # Main action button
-if st.button("Gera Relatório e Mapa de Risco", type="primary"):
+if st.button("Gerar Relatório e Mapa de Risco", type="primary"):
     if farm_selecionado == "Reserva Natural Boa Ventura":
         st.session_state['mapa_gerado'] = True
     else:
