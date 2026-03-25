@@ -1,5 +1,5 @@
 streamlit==1.32.2
-protobuf>=4.21.0
+protobuf>=4.25.3
 leafmap
 folium
 streamlit-folium
@@ -11,3 +11,4 @@ matplotlib
 localtileserver
 xarray
 rioxarray
+numpy

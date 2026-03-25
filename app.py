@@ -1,10 +1,14 @@
+# --- FIX FOR PYTHON 3.14 ENV ---
+import os
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+# --------------------------------------
+
 import streamlit as st
 import pandas as pd
 import hashlib
 import rasterio
 import leafmap.foliumap as foliumap
 import plotly.express as px
-import os
 from pathlib import Path
 import xarray as xr
 import rioxarray as rxr
@@ -197,10 +201,10 @@ st.subheader("🔍 Seleção de Ativo para Auditoria")
 col_uf, col_mun, col_farm = st.columns(3)
 
 # Mocked Data for the Pilot (simulating a future database)
-uf_selecionado = col_uf.selectbox("Estado",["Goiás (GO)", "Minas Gerais (MG)", "Mato Grosso (MT)"])
+uf_selecionado = col_uf.selectbox("Estado",["Goiás (GO)", "Minas Gerais (MG)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "São Paulo (SP)"])
 
 if uf_selecionado == "Goiás (GO)":
-    mun_selecionado = col_mun.selectbox("Município", ["Cavalcante", "Alto Paraíso", "Teresina de Goiás"])
+    mun_selecionado = col_mun.selectbox("Município", ["Cavalcante", "Formosa", "Goiânia", "Itumbiara", "Mineiros", "Rio Verde"])
 else:
     mun_selecionado = col_mun.selectbox("Município", ["Selecione o Estado..."])
 
