@@ -284,21 +284,19 @@ if st.session_state['mapa_gerado']:
     with map_col:
         if rgba is not None:
             try:
-                if 'm' not in st.session_state:
-                    m = foliumap.Map(center=[center_lat, center_lon], zoom=15, draw_control=False, measure_control=False, tiles="openstreetmap")
-                    if rgba_o is not None:
-                        ImageOverlay(image=rgba_o, bounds=bounds_o, opacity=opacity_val, name='Orthophoto').add_to(m)
-                    ImageOverlay(image=rgba, bounds=bounds_folium, opacity=1.0, name='Fire Hazard Score').add_to(m)
-                    
-                    if inpe_points:
-                        fg = folium.FeatureGroup(name='Focos de Calor (INPE)', show=False)
-                        for lat, lon in inpe_points:
-                            folium.CircleMarker(location=[lat, lon], radius=2, color='black', fill=True, fill_color='black', weight=1).add_to(fg)
-                        fg.add_to(m)
-                    st.session_state['m'] = m
+                m = foliumap.Map(center=[center_lat, center_lon], zoom=15, draw_control=False, measure_control=False, tiles="openstreetmap")
+                if rgba_o is not None:
+                    ImageOverlay(image=rgba_o, bounds=bounds_o, opacity=opacity_val, name='Orthophoto').add_to(m)
+                ImageOverlay(image=rgba, bounds=bounds_folium, opacity=1.0, name='Fire Hazard Score').add_to(m)
+                
+                if inpe_points:
+                    fg = folium.FeatureGroup(name='Focos de Calor (INPE)', show=False)
+                    for lat, lon in inpe_points:
+                        folium.CircleMarker(location=[lat, lon], radius=2, color='black', fill=True, fill_color='black', weight=1).add_to(fg)
+                    fg.add_to(m)
                 
                 # Render statically to avoid loops in Folium
-                st.session_state['m'].to_streamlit(height=500, static=True) 
+                m.to_streamlit(height=500, static=True) 
                 
             except Exception as e:
                 st.error(f"Erro na renderização: {e}")
