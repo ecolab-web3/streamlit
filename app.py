@@ -254,17 +254,17 @@ if st.session_state['mapa_gerado']:
             critical_area_pct = (critical_df.iloc[0]['Area_ha'] / total_area) * 100
 
     # @notice Top KPIs Row
-     st.subheader("📊 Métricas Consolidadas do Ativo")
-    col1, col2, col3, col4 = st.columns(4)
+    st.subheader("📊 Métricas Consolidadas do Ativo")
+        col1, col2, col3, col4 = st.columns(4)
 
-    vol_total = metrics_dict.get('Volume Total (m3)', 0)
-    area_veg = metrics_dict.get('Area Vegetada Real (ha)', 0)
-    alt_media = metrics_dict.get('Altura Media dos Pixels > 0 (m)', 0)
+        vol_total = metrics_dict.get('Volume Total (m3)', 0)
+        area_veg = metrics_dict.get('Area Vegetada Real (ha)', 0)
+        alt_media = metrics_dict.get('Altura Media dos Pixels > 0 (m)', 0)
 
-    col1.metric("Volume Total (m³)", f"{vol_total:,.0f}".replace(',', '.'))
-    col2.metric("Área Vegetada (ha)", f"{area_veg:,.1f}".translate(str.maketrans(',.', '.,')))
-    col3.metric("Altura Média (m)", f"{alt_media:,.2f}".translate(str.maketrans(',.', '.,')))
-    col4.metric("% Risco Crítico", f"{critical_area_pct:.1f}".translate(str.maketrans(',.', '.,')) + "%")
+        col1.metric("Volume Total (m³)", f"{vol_total:,.0f}".replace(',', '.'))
+        col2.metric("Área Vegetada (ha)", f"{area_veg:,.1f}".translate(str.maketrans(',.', '.,')))
+        col3.metric("Altura Média (m)", f"{alt_media:,.2f}".translate(str.maketrans(',.', '.,')))
+        col4.metric("% Risco Crítico", f"{critical_area_pct:.1f}".translate(str.maketrans(',.', '.,')) + "%")
 
     st.write("")
     
