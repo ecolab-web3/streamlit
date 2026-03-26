@@ -40,4 +40,10 @@ ENV STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
 EXPOSE 8501
 
 # Command to run the Streamlit application
-CMD ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501",  "--server.fileWatcherType=none", "--server.maxMessageSize=500", "--browser.gatherUsageStats=false"]
+CMD ["streamlit", "run", "app.py", \
+     "--server.address=0.0.0.0", \
+     "--server.port=8501", \
+     "--server.fileWatcherType=none", \
+     "--browser.gatherUsageStats=false", \
+     "--server.enableCORS=false", \
+     "--server.enableXsrfProtection=false"]
