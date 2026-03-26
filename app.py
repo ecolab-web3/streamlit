@@ -17,18 +17,12 @@ import folium
 import glob
 from folium.raster_layers import ImageOverlay
 
-# --- HARDENED CONFIGURATION (AVOID AUTO-RELOADS VIA TELEMETRY) ---
-# @ dev Forces Streamlit to ignore telemetry even if the environment attempts to inject it.
+# @dev Environment Configuration
 os.environ["STREAMLIT_SERVER_FILE_WATCHER_TYPE"] = "none"
 os.environ['GDAL_PAM_ENABLED'] = 'NO'
-os.environ["STREAMLIT_BROWSER_GATHER_USAGE_STATS"] = "false"
-os.environ["STREAMLIT_SERVER_ENABLE_CORS"] = "false"
-os.environ["STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION"] = "false"
 
 # @dev Applies the settings via Python to ensure Streamlit follows them
-st.config.set_option("browser.gatherUsageStats", False)
 st.config.set_option("server.fileWatcherType", "none")
-# -------------------------------------------------------------------
 
 # @dev Page Configuration
 st.set_page_config(page_title="E-co.lab | Monitoramento de Risco de Incêndios Rurais", layout="wide")
